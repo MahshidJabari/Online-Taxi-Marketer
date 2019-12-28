@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color08">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color06"
+        android:orientation="horizontal"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/text_white_20"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="@string/up_photo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="4"
+            app:layout_constraintHorizontal_bias="0.45"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"
+            app:layout_constraintWidth_percent="0.6" />
+
+        <TextView
+            android:id="@+id/tv_return"
+            style="@style/tv_return"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="start"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="3"
+            app:layout_constraintLeft_toRightOf="@id/tv_title"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"
+            app:layout_constraintWidth_percent="0.15" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:src="@drawable/ic_chevron_right_white_24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/tv_return"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.08" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_middle"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color08"
+        app:layout_constraintBottom_toTopOf="@id/guideline_underHeader"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline_middle">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/curve_shape_dark_blue">
+
+        </View>
+
+    </LinearLayout>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_underHeader"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <LinearLayout
+        android:id="@+id/lin1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layoutDirection="rtl"
+        android:weightSum="2"
+        app:layout_constraintBottom_toTopOf="@id/guideline_aboveEnd"
+        app:layout_constraintHeight_percent="0.05"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline_underHeader"
+        app:layout_constraintVertical_bias="0.1"
+        app:layout_constraintWidth_percent="0.8">
+
+        <TextView
+            android:id="@+id/tv_meli"
+            style="@style/text_dark_blue_18"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:background="@color/transparent"
+            android:gravity="right"
+            android:text="@string/meli_card" />
+
+        <Button
+            android:id="@+id/btn_send_meli"
+            style="@style/text_white_17"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:onClick="onClick"
+            android:background="@drawable/back_ten_radius_blue"
+            android:drawableStart="@drawable/ic_file_upload_white_24dp"
+            android:text="@string/choose_photo" />
+
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/gray"
+        android:translationY="5dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lin1"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <LinearLayout
+        android:id="@+id/lin2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layoutDirection="rtl"
+        android:weightSum="2"
+        app:layout_constraintBottom_toTopOf="@id/guideline_aboveEnd"
+        app:layout_constraintHeight_percent="0.05"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view1"
+        app:layout_constraintVertical_bias="0.05"
+        app:layout_constraintWidth_percent="0.8">
+
+        <TextView
+            style="@style/text_dark_blue_18"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:background="@color/transparent"
+            android:gravity="right"
+            android:text="@string/identity" />
+
+        <Button
+            android:id="@+id/btn_send_identity"
+            style="@style/text_white_17"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:onClick="onClick"
+            android:background="@drawable/back_ten_radius_blue"
+            android:drawableStart="@drawable/ic_file_upload_white_24dp"
+            android:text="@string/choose_photo" />
+
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/gray"
+        android:translationY="5dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lin2"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <LinearLayout
+        android:id="@+id/lin3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layoutDirection="rtl"
+        android:weightSum="2"
+        app:layout_constraintBottom_toTopOf="@id/guideline_aboveEnd"
+        app:layout_constraintHeight_percent="0.05"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view2"
+        app:layout_constraintVertical_bias="0.06"
+        app:layout_constraintWidth_percent="0.8">
+
+        <TextView
+            style="@style/text_dark_blue_18"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:background="@color/transparent"
+            android:gravity="right"
+            android:text="@string/driving_licence" />
+
+        <Button
+            android:id="@+id/btn_send_license"
+            style="@style/text_white_17"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:onClick="onClick"
+            android:background="@drawable/back_ten_radius_blue"
+            android:drawableStart="@drawable/ic_file_upload_white_24dp"
+            android:text="@string/choose_photo" />
+
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/gray"
+        android:translationY="5dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lin3"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <LinearLayout
+        android:id="@+id/lin4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layoutDirection="rtl"
+        android:weightSum="2"
+        app:layout_constraintBottom_toTopOf="@id/guideline_aboveEnd"
+        app:layout_constraintHeight_percent="0.05"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view3"
+        app:layout_constraintVertical_bias="0.07"
+        app:layout_constraintWidth_percent="0.8">
+
+        <TextView
+            style="@style/text_dark_blue_18"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:background="@color/transparent"
+            android:gravity="right"
+            android:text="@string/card2" />
+
+        <Button
+            android:id="@+id/btn_send_military"
+            style="@style/text_white_17"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:onClick="onClick"
+            android:background="@drawable/back_ten_radius_blue"
+            android:drawableStart="@drawable/ic_file_upload_white_24dp"
+            android:text="@string/choose_photo" />
+
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/gray"
+        android:translationY="5dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lin4"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <LinearLayout
+        android:id="@+id/lin5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layoutDirection="rtl"
+        android:weightSum="2"
+        app:layout_constraintBottom_toTopOf="@id/guideline_aboveEnd"
+        app:layout_constraintHeight_percent="0.05"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view4"
+        app:layout_constraintVertical_bias="0.09"
+        app:layout_constraintWidth_percent="0.8">
+
+        <TextView
+            style="@style/text_dark_blue_18"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:background="@color/transparent"
+            android:gravity="right"
+            android:text="@string/green_paper" />
+
+        <Button
+            android:id="@+id/btn_send_green_paper"
+            style="@style/text_white_17"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:onClick="onClick"
+            android:background="@drawable/back_ten_radius_blue"
+            android:drawableStart="@drawable/ic_file_upload_white_24dp"
+            android:text="@string/choose_photo" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view5"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/gray"
+        android:translationY="5dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lin5"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <LinearLayout
+        android:id="@+id/lin6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layoutDirection="rtl"
+        android:weightSum="2"
+        app:layout_constraintBottom_toTopOf="@id/guideline_aboveEnd"
+        app:layout_constraintHeight_percent="0.05"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view5"
+        app:layout_constraintVertical_bias="0.12"
+        app:layout_constraintWidth_percent="0.8">
+
+        <TextView
+            style="@style/text_dark_blue_18"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:background="@color/transparent"
+            android:gravity="right"
+            android:text="@string/water_bill" />
+
+        <Button
+            android:id="@+id/btn_send_water_bill"
+            style="@style/text_white_17"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:onClick="onClick"
+            android:background="@drawable/back_ten_radius_blue"
+            android:drawableStart="@drawable/ic_file_upload_white_24dp"
+            android:text="@string/choose_photo" />
+
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view6"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/gray"
+        android:translationY="5dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lin6"
+        app:layout_constraintWidth_percent="0.8" />
+
+
+    <LinearLayout
+        android:id="@+id/lin7"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layoutDirection="rtl"
+        android:weightSum="2"
+        app:layout_constraintBottom_toTopOf="@id/guideline_aboveEnd"
+        app:layout_constraintHeight_percent="0.05"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view6"
+        app:layout_constraintVertical_bias="0.14"
+        app:layout_constraintWidth_percent="0.8">
+
+        <TextView
+            style="@style/text_dark_blue_18"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:background="@color/transparent"
+            android:gravity="right"
+            android:text="@string/bill2" />
+
+        <Button
+            android:id="@+id/btn_send_electricity_bill"
+            style="@style/text_white_17"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:onClick="onClick"
+            android:background="@drawable/back_ten_radius_blue"
+            android:drawableStart="@drawable/ic_file_upload_white_24dp"
+            android:text="@string/choose_photo" />
+
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view7"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/gray"
+        android:translationY="5dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lin7"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_aboveEnd"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.85" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color08"
+        app:layout_constraintBottom_toTopOf="@id/guideline_end"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline_aboveEnd">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/curve_shape_green"
+            android:scaleX="-1"
+            android:scaleY="-1">
+
+        </View>
+
+    </LinearLayout>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_end"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.92" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/green"
+        android:gravity="top"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintTop_toBottomOf="@id/guideline_end">
+
+        <TextView
+            android:id="@+id/tv_upload_photo"
+            style="@style/text_white_20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableEnd="@drawable/limit_icon_signup_bottom"
+            android:drawablePadding="10dp"
+            android:gravity="top"
+            android:onClick="onClickUp"
+            android:text="@string/upload_photos" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

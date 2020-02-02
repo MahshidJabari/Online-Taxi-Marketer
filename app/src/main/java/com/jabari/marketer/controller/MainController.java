@@ -2,7 +2,6 @@ package com.jabari.marketer.controller;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.jabari.marketer.custom.GeneralResponse;
 import com.jabari.marketer.custom.GlobalVariables;
 import com.jabari.marketer.network.config.ApiClient;
 import com.jabari.marketer.network.config.ApiInterface;
@@ -15,11 +14,17 @@ import retrofit2.Retrofit;
 public class MainController {
 
     ApiInterface.MainInformationCallBack mainInformationCallBack;
+    ApiInterface.paymentRequestCallback paymentRequestCallback;
 
-    public MainController(ApiInterface.MainInformationCallBack mainInformationCallBack){
+    public MainController(ApiInterface.MainInformationCallBack mainInformationCallBack) {
         this.mainInformationCallBack = mainInformationCallBack;
     }
-    public void Do(){
+
+    public MainController(ApiInterface.paymentRequestCallback paymentRequestCallback) {
+        this.paymentRequestCallback = paymentRequestCallback;
+    }
+
+    public void Do() {
 
         Retrofit retrofit = ApiClient.getClient();
         ApiInterface apiInterface = retrofit.create(ApiInterface.class);
@@ -28,13 +33,13 @@ public class MainController {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
 
-                if(response.isSuccessful()){
+                if (response.isSuccessful()) {
 
-                    String registeredDriver = new Gson().fromJson(response.body().get("registeredDriver"),String.class);
-                    String registeredMarketer = new Gson().fromJson(response.body().get("registeredMarketer"),String.class);
-                    String credit = new Gson().fromJson(response.body().get("balance"),String.class);
+                    String registeredDriver = new Gson().fromJson(response.body().get("registeredDriver"), String.class);
+                    String registeredMarketer = new Gson().fromJson(response.body().get("registeredMarketer"), String.class);
+                    String credit = new Gson().fromJson(response.body().get("balance"), String.class);
 
-                    mainInformationCallBack.onResponse(registeredMarketer,registeredDriver,credit);
+                    mainInformationCallBack.onResponse(registeredMarketer, registeredDriver, credit);
                 }
             }
 
@@ -43,6 +48,25 @@ public class MainController {
 
                 mainInformationCallBack.onFailure("اختلال در بارگیری اطلاعات");
 
+            }
+        });
+    }
+
+    public void sendPayment() {
+
+        Retrofit retrofit = ApiClient.getClient();
+        ApiInterface apiInterface = retrofit.create(ApiInterface.class);
+        Call<JsonObject> call = apiInterface.paymentRequest();
+        call.enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                paymentRequestCallback.onResponse(true);
+            }
+
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+
+                paymentRequestCallback.onFailure("Error");
             }
         });
     }

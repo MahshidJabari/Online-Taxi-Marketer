@@ -111,6 +111,7 @@
             android:layout_weight="1.2"
             android:background="@color/transparent"
             android:gravity="right"
+            android:layoutDirection="rtl"
             android:text="@string/meli_card" />
 
         <Button
@@ -119,9 +120,10 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.8"
-            android:onClick="onClick"
             android:background="@drawable/back_ten_radius_blue"
             android:drawableStart="@drawable/ic_file_upload_white_24dp"
+            android:layoutDirection="rtl"
+            android:onClick="onClick"
             android:text="@string/choose_photo" />
 
 
@@ -159,6 +161,7 @@
             android:layout_weight="1.2"
             android:background="@color/transparent"
             android:gravity="right"
+            android:layoutDirection="rtl"
             android:text="@string/identity" />
 
         <Button
@@ -167,9 +170,10 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.8"
-            android:onClick="onClick"
             android:background="@drawable/back_ten_radius_blue"
             android:drawableStart="@drawable/ic_file_upload_white_24dp"
+            android:layoutDirection="rtl"
+            android:onClick="onClick"
             android:text="@string/choose_photo" />
 
 
@@ -207,6 +211,7 @@
             android:layout_weight="1.2"
             android:background="@color/transparent"
             android:gravity="right"
+            android:layoutDirection="rtl"
             android:text="@string/driving_licence" />
 
         <Button
@@ -215,9 +220,10 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.8"
-            android:onClick="onClick"
             android:background="@drawable/back_ten_radius_blue"
             android:drawableStart="@drawable/ic_file_upload_white_24dp"
+            android:layoutDirection="rtl"
+            android:onClick="onClick"
             android:text="@string/choose_photo" />
 
 
@@ -255,6 +261,7 @@
             android:layout_weight="1.2"
             android:background="@color/transparent"
             android:gravity="right"
+            android:layoutDirection="rtl"
             android:text="@string/card2" />
 
         <Button
@@ -263,9 +270,10 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.8"
-            android:onClick="onClick"
             android:background="@drawable/back_ten_radius_blue"
             android:drawableStart="@drawable/ic_file_upload_white_24dp"
+            android:layoutDirection="rtl"
+            android:onClick="onClick"
             android:text="@string/choose_photo" />
 
 
@@ -303,6 +311,7 @@
             android:layout_weight="1.2"
             android:background="@color/transparent"
             android:gravity="right"
+            android:layoutDirection="rtl"
             android:text="@string/green_paper" />
 
         <Button
@@ -311,9 +320,10 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.8"
-            android:onClick="onClick"
             android:background="@drawable/back_ten_radius_blue"
             android:drawableStart="@drawable/ic_file_upload_white_24dp"
+            android:layoutDirection="rtl"
+            android:onClick="onClick"
             android:text="@string/choose_photo" />
 
     </LinearLayout>
@@ -350,6 +360,7 @@
             android:layout_weight="1.2"
             android:background="@color/transparent"
             android:gravity="right"
+            android:layoutDirection="rtl"
             android:text="@string/water_bill" />
 
         <Button
@@ -358,9 +369,10 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.8"
-            android:onClick="onClick"
             android:background="@drawable/back_ten_radius_blue"
             android:drawableStart="@drawable/ic_file_upload_white_24dp"
+            android:layoutDirection="rtl"
+            android:onClick="onClick"
             android:text="@string/choose_photo" />
 
 
@@ -399,6 +411,7 @@
             android:layout_weight="1.2"
             android:background="@color/transparent"
             android:gravity="right"
+            android:layoutDirection="rtl"
             android:text="@string/bill2" />
 
         <Button
@@ -407,9 +420,10 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.8"
-            android:onClick="onClick"
             android:background="@drawable/back_ten_radius_blue"
             android:drawableStart="@drawable/ic_file_upload_white_24dp"
+            android:layoutDirection="rtl"
+            android:onClick="onClick"
             android:text="@string/choose_photo" />
 
 
@@ -476,11 +490,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:drawableEnd="@drawable/limit_icon_signup_bottom"
+            android:drawableStart="@drawable/limit_icon_signup_bottom"
             android:drawablePadding="10dp"
             android:gravity="top"
-            android:onClick="onClickUp"
-            android:text="@string/upload_photos" />
+            android:layoutDirection="rtl"
+            android:onClick="onClickRegister"
+            android:text="@string/continue_register" />
 
     </LinearLayout>
 

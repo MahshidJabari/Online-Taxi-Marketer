@@ -1,22 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jabari.marketer">
+
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera"></uses-feature>
+
 
     <application
+        android:name=".custom.CustomFontApplication"
+        android:networkSecurityConfig="@xml/network_security"
         android:allowBackup="true"
         android:icon="@drawable/splash_logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name=".custom.CustomFontApplication"
         android:theme="@style/AppTheme">
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.jabari.marketer"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_path" />
+
+        </provider>
+
         <activity android:name=".activity.FirstActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,14 +41,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.RegisteredMarketerActivity"/>
-        <activity android:name=".activity.LoginActivity"/>
-        <activity android:name=".activity.MainActivity"/>
-        <activity android:name=".activity.MarketerActivity"/>
-        <activity android:name=".activity.ProfileActivity"/>
-        <activity android:name=".activity.RegisterDriverActivity"/>
-        <activity android:name=".activity.UploadActivity"/>
-        <activity android:name=".activity.RegisterMarketerActivity"/>
+        <activity android:name=".activity.RegisteredMarketerActivity" />
+        <activity android:name=".activity.login.LoginActivity" />
+        <activity android:name=".activity.main.MainActivity" />
+        <activity android:name=".activity.main.MarketerActivity" />
+        <activity android:name=".activity.main.ProfileActivity" />
+        <activity android:name=".activity.register_member.RegisterDriverActivity" />
+        <activity android:name=".activity.UploadActivity" />
+        <activity android:name=".activity.register_member.RegisterMarketerActivity" />
+        <activity android:name=".activity.login.VerifyActivity"/>
+        <activity android:name=".activity.register_member.RegisterCostumerActivity"/>
     </application>
 
 </manifest>

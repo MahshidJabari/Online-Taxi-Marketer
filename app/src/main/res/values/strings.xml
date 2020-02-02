@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">marketer</string>
-    <string name="signin">تایید و ورود</string>
+    <string name="signin">تایید</string>
     <string name="register">ثبت نام</string>
     <string name="sign_in">ورود</string>
     <string name="signin_phone">ورود با شماره همراه</string>
@@ -8,9 +8,9 @@
     <string name="enter_validation">ورود کد تایید</string>
     <string name="phonenum">شماره تلفن همراه</string>
     <string name="resend_validation">ارسال مجدد کد تایید</string>
-    <string name="send_validation">ارسال کد تایید</string>
+    <string name="send_validation">دریافت کد تایید</string>
     <string name="signin_with">ورود با</string>
-    <string name="verification_code">کد تایید</string>
+    <string name="verification_code">ورود کد تایید</string>
     <string name="name">نام</string>
     <string name="family">نام خانوادگی</string>
     <string name="email">ایمیل</string>
@@ -20,13 +20,16 @@
     <string name="choose_photo">انتخاب عکس</string>
     <string name="marketer">بازاریابان</string>
     <string name="ok">باشه</string>
+    <string name="loading">لطفا صبر کنید!</string>
     <string name="conflict">این کاربر قبلا ثبت شده است.</string>
     <string name="name_family">نام و نام خانوادگی</string>
+    <string name="failed">عملیات با خطا مواجه شد!</string>
     <string name="profile">پروفایل</string>
     <string name="sheba">شماره شبا</string>
     <string name="edit_sheba">ویرایش شبا</string>
     <string name="select_action">انتخاب کنید</string>
-    <string name="save_photo">انتخاب عکس</string>
+    <string name="save_photo">میخواهید عکس را ارسال کنید؟</string>
+    <string name="save_ph"></string>
     <string name="send">ارسال</string>
     <string name="cancel">انصراف</string>
     <string name="select_photo">انتخاب عکس از گالری</string>
@@ -34,10 +37,12 @@
     <string name="delete_sheba">حذف شبا</string>
     <string name="register_driver">میخواهم سفیر جدید ثبت نام کنم</string>
     <string name="register_marketer">میخواهم بازاریاب جدید ثبت نام کنم</string>
+    <string name="register_costumer">میخواهم مسافر جدید ثبت نام کنم</string>
     <string name="bill2">قبوض برق</string>
     <string name="green_paper">برگ سبز</string>
     <string name="save">ذخیره</string>
     <string name="register_marketer_">ثبت نام بازاریاب جدید</string>
+    <string name="register_costumer_">ثبت نام مسافر جدید</string>
     <string name="register_new_driver">ثبت نام سفیر جدید</string>
     <string name="marketer_activity">فعالیت بازاریابان</string>
     <string name="registered_client">مشتریان ثبت نام شده</string>
@@ -52,10 +57,13 @@
     <string name="city">شهر</string>
     <string name="identity">شناسنامه</string>
     <string name="meli_card">کارت ملی</string>
+    <string name="verify_code">کد تایید</string>
     <string name="upload_photos">آپلود عکس ها و مدارک</string>
+    <string name="continue_register">ادامه فرآیند ثبت نام</string>
     <string name="up_photo">ارسال عکس ها و مدارک</string>
     <string name="send_photo">ارسال عکس ها</string>
     <string name="msg_singin">شماره تلفن همراهی را که هنگام ثبت نام وارد کرده اید: </string>
+    <string name="msg_verify">کد تایید به شماره تلفن شما ارسال می گردد و تا 60 ثانیه اعتبار دارد!</string>
     <string name="msg_signup">شما میتوانید از این قسمت نسبت به ثبت نام بعنوان سفیر دیجی پیک اقدام کنید!</string>
 
 </resources>

@@ -17,6 +17,7 @@ public class RegisterController {
 
     ApiInterface.Register_driverCallback register_driverCallback;
     ApiInterface.Register_MarketerCallback register_marketerCallback;
+    ApiInterface.Register_USerCallBack registerUSerCallBack;
 
     public RegisterController(ApiInterface.Register_driverCallback registerDriverCallback) {
 
@@ -26,6 +27,11 @@ public class RegisterController {
     public RegisterController(ApiInterface.Register_MarketerCallback registerMarketerCallback) {
         this.register_marketerCallback = registerMarketerCallback;
     }
+
+    public RegisterController(ApiInterface.Register_USerCallBack registerUserCallback) {
+        this.registerUSerCallBack = registerUserCallback;
+    }
+
 
     public void RegisterDriver(String name, String mobile, String address,
                                String meli, String Id, String license,
@@ -66,15 +72,36 @@ public class RegisterController {
                 Log.d("response", "registered!");
                 if (response.body() != null) {
                     register_marketerCallback.onResponse("ok");
-                }
-                else register_marketerCallback.onResponse("conflict");
+                } else register_marketerCallback.onResponse("conflict");
 
-        }
-        @Override
-        public void onFailure (Call < JsonObject > call, Throwable t){
+            }
 
-        }
-    });
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
 
-      }
+            }
+        });
+
+    }
+
+    public void RegisterCostumer(String phone) {
+
+        Retrofit retrofit = ApiClient.getClient();
+        ApiInterface apiInterface = retrofit.create(ApiInterface.class);
+        Call<JsonObject> call = apiInterface.Register_USer(phone);
+        call.enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+
+                registerUSerCallBack.onResponse("ok");
+            }
+
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+
+            }
+        });
+
+
+    }
 }

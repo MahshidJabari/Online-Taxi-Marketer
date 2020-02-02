@@ -9,7 +9,7 @@
     </style>
 
     <style name="text_white_20">
-        <item name="android:textSize">21sp</item>
+        <item name="android:textSize">22sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:paddingRight">5dp</item>

@@ -10,13 +10,15 @@ import android.view.View;
 import android.widget.Button;
 
 import com.jabari.marketer.R;
+import com.jabari.marketer.activity.login.LoginActivity;
+import com.jabari.marketer.activity.main.MainActivity;
 import com.jabari.marketer.custom.GlobalVariables;
 import com.jabari.marketer.custom.PrefManager;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class FirstActivity extends AppCompatActivity {
-    private Button btn_login, btn_register;
+    private Button btn_login;
 
     @Override
     protected void attachBaseContext(Context newBase) {

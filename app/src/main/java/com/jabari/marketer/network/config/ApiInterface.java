@@ -4,11 +4,8 @@ import com.google.gson.JsonObject;
 import com.jabari.marketer.custom.GeneralResponse;
 import com.jabari.marketer.network.model.User;
 
-import java.util.List;
 
 import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -19,7 +16,6 @@ import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Part;
-import retrofit2.http.Path;
 
 public interface ApiInterface {
 
@@ -69,6 +65,18 @@ public interface ApiInterface {
     }
 
     @FormUrlEncoded
+    @PUT("marketer/signup/user")
+    @Headers({
+            "Content-Type: application/x-www-form-urlencoded"
+    })
+
+    Call<JsonObject> Register_USer(@Field("mobile") String mobile);
+    interface Register_USerCallBack{
+        void onResponse(String message);
+        void onFailure(String error);
+    }
+
+    @FormUrlEncoded
     @PUT("marketer/signup/driver")
     Call<JsonObject> Register_driver(@Field ("name") String FirstName,
                                      @Field("mobile") String LastName,
@@ -86,18 +94,26 @@ public interface ApiInterface {
         void onFailure(String error);
     }
 
+    @FormUrlEncoded
+    @PUT("marketer/settlement")
+    Call<JsonObject> paymentRequest();
+    interface paymentRequestCallback{
+        void onResponse(Boolean success);
+        void onFailure(String error);
+    }
+
     @Multipart
     @POST("image")
-    @Headers({
-            "Content-Type: application/x-www-form-urlencoded"
-    })
-
-    Call<JsonObject> uploadPhotos(@Part MultipartBody.Part file,@Part(".Authorization") RequestBody token);
+    Call<JsonObject> uploadPhotos(
+            @Part MultipartBody.Part image,
+            @Header("Authorization") String token
+    );
 
     interface UploadFileCallback{
-        void onResponse(String url);
+        void onResponse(Boolean success);
         void onFailure(String error);
 
     }
 
 }
+

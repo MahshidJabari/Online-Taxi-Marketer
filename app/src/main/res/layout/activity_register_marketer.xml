@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/color08">
 
     <android.support.constraint.ConstraintLayout
@@ -93,59 +93,58 @@
 
     <EditText
         android:id="@+id/et_name"
+        style="@style/text_black_18"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/guideline_underHeader"
-        app:layout_constraintBottom_toTopOf="@id/guideline_aboveEnd"
-        app:layout_constraintVertical_bias="0.4"
-        app:layout_constraintHeight_percent="0.08"
-        app:layout_constraintWidth_percent="0.8"
-        android:inputType="textPersonName"
         android:background="@drawable/back_thirty_radius_white"
-        android:drawableRight="@drawable/ic_account_circle_black_24dp"
-        android:paddingRight="10dp"
-        android:paddingLeft="10dp"
-        android:hint="@string/name_family"
-        android:textColorHint="@color/gray"
+        android:drawableStart="@drawable/ic_account_circle_black_24dp"
         android:gravity="center"
-        style="@style/text_black_18"/>
+        android:hint="@string/name_family"
+        android:inputType="textPersonName"
+        android:layoutDirection="rtl"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColorHint="@color/gray"
+        app:layout_constraintBottom_toTopOf="@id/guideline_aboveEnd"
+        app:layout_constraintHeight_percent="0.08"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline_underHeader"
+        app:layout_constraintVertical_bias="0.4"
+        app:layout_constraintWidth_percent="0.8" />
 
     <EditText
         android:id="@+id/et_phoneNum"
+        style="@style/text_black_18"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_name"
-        app:layout_constraintBottom_toTopOf="@id/guideline_aboveEnd"
-        app:layout_constraintVertical_bias="0.1"
-        app:layout_constraintHeight_percent="0.081"
-        app:layout_constraintWidth_percent="0.8"
         android:background="@drawable/back_thirty_radius_white"
-        android:drawableRight="@drawable/ic_phone_black_24dp"
-        android:paddingRight="10dp"
-        android:paddingLeft="10dp"
-        android:hint="@string/phonenum"
-        android:textColorHint="@color/gray"
+        android:drawableStart="@drawable/ic_phone_black_24dp"
         android:gravity="center"
-        style="@style/text_black_18"/>
+        android:hint="@string/phonenum"
+        android:layoutDirection="rtl"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColorHint="@color/gray"
+        app:layout_constraintBottom_toTopOf="@id/guideline_aboveEnd"
+        app:layout_constraintHeight_percent="0.081"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_name"
+        app:layout_constraintVertical_bias="0.1"
+        app:layout_constraintWidth_percent="0.8" />
 
     <ProgressBar
         android:id="@+id/pb_load"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/et_phoneNum"
         app:layout_constraintBottom_toTopOf="@id/guideline_aboveEnd"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHeight_percent="0.05"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintWidth_percent="0.5"
-        app:layout_constraintHeight_percent="0.05"/>
-
-
-
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_phoneNum"
+        app:layout_constraintWidth_percent="0.5" />
 
 
     <android.support.constraint.Guideline
@@ -198,9 +197,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:drawableEnd="@drawable/limit_icon_signup_bottom"
+            android:drawableStart="@drawable/limit_icon_signup_bottom"
             android:drawablePadding="10dp"
             android:gravity="top"
+            android:layoutDirection="rtl"
             android:text="@string/register" />
 
     </LinearLayout>

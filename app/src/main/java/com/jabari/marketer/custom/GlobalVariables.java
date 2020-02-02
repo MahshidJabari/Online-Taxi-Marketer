@@ -14,6 +14,7 @@ public class GlobalVariables {
     public static Bitmap bitmap;
     public static String sheba;
     public static String bitmaps;
+    public static Integer uploadedFile = 0;
     public static Boolean isClicked = false;
 
 

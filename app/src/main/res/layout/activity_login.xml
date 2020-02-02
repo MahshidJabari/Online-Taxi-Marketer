@@ -86,13 +86,15 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:gravity="center"
+        android:layoutDirection="rtl"
         android:text="@string/msg_singin"
         app:layout_constraintBottom_toTopOf="@id/guideline_aboveEnd"
         app:layout_constraintHeight_percent="0.1"
         app:layout_constraintLeft_toRightOf="@id/guideline_left"
         app:layout_constraintRight_toLeftOf="@id/guideline_right2"
         app:layout_constraintTop_toBottomOf="@id/guideline_underHeader"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintVertical_bias="0.1"
+        app:layout_constraintWidth_percent="0.55" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline_left2"
@@ -107,16 +109,19 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/transparent"
+        android:drawableRight="@drawable/ic_phone_black_24dp"
         android:gravity="center"
         android:hint="@string/phonenum"
-        android:inputType="phone"
+        android:layoutDirection="rtl"
+        android:maxLines="1"
         android:textColorHint="@color/darkGray"
         app:layout_constraintBottom_toTopOf="@id/guideline_aboveEnd"
         app:layout_constraintHeight_percent="0.08"
         app:layout_constraintLeft_toRightOf="@id/guideline_left"
         app:layout_constraintRight_toLeftOf="@id/guideline_right"
         app:layout_constraintTop_toBottomOf="@id/tv_msg"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintWidth_percent="0.6" />
 
     <View
         android:id="@+id/view1"
@@ -125,50 +130,8 @@
         android:background="@color/darkGray"
         app:layout_constraintLeft_toRightOf="@id/guideline_left"
         app:layout_constraintRight_toLeftOf="@id/guideline_right"
-        app:layout_constraintTop_toBottomOf="@id/et_phoneNum" />
-
-    <EditText
-        android:id="@+id/et_verification_code"
-        style="@style/text_black_18"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@color/transparent"
-        android:gravity="center"
-        android:hint="@string/verification_code"
-        android:textColorHint="@color/darkGray"
-        app:layout_constraintBottom_toTopOf="@id/guideline_aboveEnd"
-        app:layout_constraintHeight_percent="0.08"
-        app:layout_constraintLeft_toRightOf="@id/guideline_left"
-        app:layout_constraintRight_toLeftOf="@id/guideline_right"
-        app:layout_constraintTop_toBottomOf="@id/view1"
-        app:layout_constraintVertical_bias="0.15" />
-
-    <View
-        android:id="@+id/view2"
-        android:layout_width="0dp"
-        android:layout_height="2dp"
-        android:background="@color/darkGray"
-        app:layout_constraintLeft_toRightOf="@id/guideline_left"
-        app:layout_constraintRight_toLeftOf="@id/guideline_right"
-        app:layout_constraintTop_toBottomOf="@id/et_verification_code" />
-
-
-    <Button
-        android:id="@+id/btn_send_code"
-        style="@style/text_white_20"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:onClick="OnClickSendVerifyCode"
-        android:text="@string/send_validation"
-        android:background="@drawable/back_thirty_radius_blue"
-        app:layout_constraintBottom_toTopOf="@id/guideline_aboveEnd"
-        app:layout_constraintHeight_percent="0.07"
-        app:layout_constraintLeft_toRightOf="@id/guideline_left"
-        app:layout_constraintRight_toLeftOf="@id/guideline_right"
-        app:layout_constraintTop_toBottomOf="@id/view2"
-        app:layout_constraintVertical_bias="0.2"
-        app:layout_constraintWidth_percent="0.5" />
+        app:layout_constraintTop_toBottomOf="@id/et_phoneNum"
+        app:layout_constraintWidth_percent="0.6" />
 
 
     <android.support.constraint.Guideline
@@ -212,6 +175,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:elevation="20dp"
+        android:onClick="onClickFab"
         android:src="@drawable/ic_tick"
         android:translationY="10dp"
         app:backgroundTint="@color/green"
@@ -265,16 +229,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHeight_percent="0.1"
         app:layout_constraintTop_toBottomOf="@id/guideline_end">
-
-        <TextView
-            style="@style/text_white_20"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:drawableEnd="@drawable/limit_icon_signup_bottom"
-            android:drawablePadding="10dp"
-            android:gravity="top"
-            android:text="@string/signin" />
 
     </LinearLayout>
 

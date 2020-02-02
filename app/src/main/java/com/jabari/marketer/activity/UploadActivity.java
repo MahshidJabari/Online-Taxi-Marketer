@@ -2,6 +2,7 @@ package com.jabari.marketer.activity;
 
 import android.Manifest;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -16,11 +17,10 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jabari.marketer.R;
+import com.jabari.marketer.activity.register_member.RegisterDriverActivity;
 import com.jabari.marketer.controller.UploadController;
 import com.jabari.marketer.custom.GlobalVariables;
 import com.jabari.marketer.network.config.ApiInterface;
@@ -36,44 +36,43 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import es.dmoral.toasty.Toasty;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 
 public class UploadActivity extends AppCompatActivity {
-
-    private TextView tv_upload_photo;
 
     private String photo_path;
     private int GALLERY = 1, CAMERA = 2;
     private static final String IMAGE_DIRECTORY = "/demonuts";
     private Uri imageUri;
+    private View selectView;
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload_photo);
 
-        setViews();
         requestMultiplePermissions();
     }
 
-    private void setViews(){
+    public void onClick(View view) {
 
-        tv_upload_photo = findViewById(R.id.tv_upload_photo);
-    }
-
-    public void onClick(View view){
-
-        view.setBackground(getResources().getDrawable(R.drawable.back_thirty_radius_gray));
         GlobalVariables.isClicked = true;
-        showPictureDialog();
+        showPictureDialog(view);
+        this.selectView = view;
 
     }
 
-    public void showPictureDialog() {
+    public void showPictureDialog(final View view) {
         AlertDialog.Builder pictureDialog = new AlertDialog.Builder(this);
         pictureDialog.setTitle(getResources().getString(R.string.select_action));
         String[] pictureDialogItems = {
@@ -97,44 +96,11 @@ public class UploadActivity extends AppCompatActivity {
     }
 
     public void choosePhotoFromGallery() {
+
         Intent galleryIntent = new Intent(Intent.ACTION_PICK,
                 android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 
         startActivityForResult(galleryIntent, GALLERY);
-    }
-    public void requestMultiplePermissions() {
-        Dexter.withActivity(this)
-                .withPermissions(
-                        Manifest.permission.CAMERA,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                        Manifest.permission.READ_EXTERNAL_STORAGE)
-                .withListener(new MultiplePermissionsListener() {
-                    @Override
-                    public void onPermissionsChecked(MultiplePermissionsReport report) {
-
-                        if (report.areAllPermissionsGranted()) {
-                        }
-
-                        if (report.isAnyPermissionPermanentlyDenied()) {
-
-                        }
-                    }
-
-                    @Override
-                    public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
-
-                        token.continuePermissionRequest();
-
-                    }
-                }).
-                withErrorListener(new PermissionRequestErrorListener() {
-                    @Override
-                    public void onError(DexterError error) {
-                        Toast.makeText(getApplicationContext(), "Some Error! ", Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .onSameThread()
-                .check();
     }
 
     public void takePhotoFromCamera() {
@@ -151,6 +117,7 @@ public class UploadActivity extends AppCompatActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
+        Log.d("data", data.toString());
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == this.RESULT_CANCELED) {
             return;
@@ -161,7 +128,6 @@ public class UploadActivity extends AppCompatActivity {
 
                 try {
 
-                    final Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), contentURI);
 
                     AlertDialog.Builder dialog = new AlertDialog.Builder(this);
                     dialog.setTitle(getResources().getString(R.string.save_photo));
@@ -169,9 +135,9 @@ public class UploadActivity extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
 
-
                             final String p = getRealPathFromURI(contentURI);
                             photo_path = p;
+                            uploadFile(photo_path);
 
                         }
                     });
@@ -183,19 +149,19 @@ public class UploadActivity extends AppCompatActivity {
                     });
                     dialog.show();
 
-                } catch (IOException e) {
+
+                } catch (Exception e) {
                     e.printStackTrace();
-                    Toast.makeText(UploadActivity.this, "انتخاب عکس با خطا مواجه شد", Toast.LENGTH_SHORT).show();
+                    Toasty.error(UploadActivity.this, "انتخاب عکس با خطا مواجه شد", Toast.LENGTH_SHORT, true).show();
                 }
             }
-
         } else if (requestCode == CAMERA) {
-
 
             try {
                 final Bitmap thumbnail;
                 thumbnail = MediaStore.Images.Media.getBitmap(
                         getContentResolver(), imageUri);
+
                 AlertDialog.Builder dialog = new AlertDialog.Builder(this);
                 dialog.setTitle(getResources().getString(R.string.save_photo));
                 dialog.setPositiveButton(getResources().getString(R.string.send), new DialogInterface.OnClickListener() {
@@ -203,6 +169,8 @@ public class UploadActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialogInterface, int i) {
 
                         photo_path = saveImage(thumbnail);
+                        uploadFile(photo_path);
+
 
                     }
                 });
@@ -214,13 +182,44 @@ public class UploadActivity extends AppCompatActivity {
                 });
                 dialog.show();
 
-
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
 
         }
+    }
+
+
+    public void onClickRegister(View view) {
+        if (GlobalVariables.uploadedFile == 7) {
+            startActivity(new Intent(UploadActivity.this, RegisterDriverActivity.class));
+        } else
+            Toasty.error(UploadActivity.this, "مدارک ناقص است!", Toast.LENGTH_LONG, true).show();
+    }
+
+    public void uploadFile(String s) {
+
+        ApiInterface.UploadFileCallback uploadFileCallback = new ApiInterface.UploadFileCallback() {
+            @Override
+            public void onResponse(Boolean success) {
+
+                selectView.setBackgroundDrawable(getResources().getDrawable(R.drawable.back_ten_radius_gray));
+                Toasty.success(UploadActivity.this, "ارسال شد!", Toast.LENGTH_LONG, true).show();
+                GlobalVariables.uploadedFile += 1;
+
+
+            }
+
+            @Override
+            public void onFailure(String error) {
+
+                Toasty.error(UploadActivity.this, "ارسال با خطا مواجه شد!", Toast.LENGTH_LONG, true).show();
+
+            }
+        };
+        UploadController uploadController = new UploadController(uploadFileCallback, UploadActivity.this);
+        uploadController.Do(s);
     }
 
     public String getRealPathFromURI(Uri contentUri) {
@@ -258,33 +257,47 @@ public class UploadActivity extends AppCompatActivity {
             fo.close();
             Log.d("TAG", "File Saved::---&gt;" + f.getAbsolutePath());
 
+
             return f.getAbsolutePath();
         } catch (IOException e1) {
             e1.printStackTrace();
         }
-        return "";
+        return null;
     }
 
-    public void onClickUp(View view){
-        uploadFile(photo_path);
-    }
+    public void requestMultiplePermissions() {
+        Dexter.withActivity(this)
+                .withPermissions(
+                        Manifest.permission.CAMERA,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.READ_EXTERNAL_STORAGE)
+                .withListener(new MultiplePermissionsListener() {
+                    @Override
+                    public void onPermissionsChecked(MultiplePermissionsReport report) {
 
-    public void uploadFile(String s){
+                        if (report.areAllPermissionsGranted()) {
+                        }
 
-        UploadController uploadController = new UploadController(new ApiInterface.UploadFileCallback() {
-            @Override
-            public void onResponse(String token) {
+                        if (report.isAnyPermissionPermanentlyDenied()) {
 
-                startActivity(new Intent(UploadActivity.this,RegisterDriverActivity.class));
-            }
+                        }
+                    }
 
-            @Override
-            public void onFailure(String error) {
-                Toast.makeText(UploadActivity.this, "مجددا تلاش کنید!", Toast.LENGTH_LONG).show();
+                    @Override
+                    public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
 
-            }
-        });
-        uploadController.Do(s);
+                        token.continuePermissionRequest();
+
+                    }
+                }).
+                withErrorListener(new PermissionRequestErrorListener() {
+                    @Override
+                    public void onError(DexterError error) {
+                        Toast.makeText(getApplicationContext(), "Some Error! ", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .onSameThread()
+                .check();
     }
 
 }

@@ -136,7 +136,7 @@ public class UploadActivity extends AppCompatActivity {
                         public void onClick(DialogInterface dialogInterface, int i) {
 
                             final String p = getRealPathFromURI(contentURI);
-                            photo_path = p;
+                                                       photo_path = p;
                             uploadFile(photo_path);
 
                         }

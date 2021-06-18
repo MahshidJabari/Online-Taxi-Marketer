@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color08">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/blue"
+        android:orientation="horizontal"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/text_white_20"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="@string/verify_code"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="4"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"
+            app:layout_constraintWidth_percent="0.55" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_middle"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color08"
+        app:layout_constraintBottom_toTopOf="@id/guideline_underHeader"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline_middle">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/curve_shape_blue">
+
+        </View>
+
+    </LinearLayout>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_underHeader"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.12" />
+
+    <TextView
+        android:id="@+id/tv_msg"
+        style="@style/text_dark_blue_18"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:layoutDirection="rtl"
+        android:text="@string/msg_verify"
+        app:layout_constraintBottom_toTopOf="@id/guideline_aboveEnd"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline_underHeader"
+        app:layout_constraintVertical_bias="0.03"
+        app:layout_constraintWidth_percent="0.8" />
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cons1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_counter"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/guideline_aboveEnd"
+        app:layout_constraintHeight_percent="0.22"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline_underHeader"
+        app:layout_constraintVertical_bias="0.35"
+        app:layout_constraintWidth_percent="0.5">
+
+
+        <TextView
+            android:id="@+id/tv_counter1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="0"
+            android:textColor="@color/white"
+            android:textSize="80dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="0.6"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.4"
+            app:layout_constraintWidth_percent="0.3" />
+
+        <TextView
+            android:id="@+id/tv_counter2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="6"
+            android:textColor="@color/white"
+            android:textSize="80dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="0.6"
+            app:layout_constraintHorizontal_bias="0.2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.4"
+            app:layout_constraintWidth_percent="0.6" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+    <EditText
+        android:id="@+id/et_verification_code"
+        style="@style/text_black_18"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/transparent"
+        android:gravity="center"
+        android:hint="@string/verification_code"
+        android:layoutDirection="rtl"
+        android:textColorHint="@color/darkGray"
+        app:layout_constraintBottom_toTopOf="@id/guideline_aboveEnd"
+        app:layout_constraintHeight_percent="0.08"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cons1"
+        app:layout_constraintVertical_bias="0.15"
+        app:layout_constraintWidth_percent="0.6" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/darkGray"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_verification_code"
+        app:layout_constraintWidth_percent="0.6" />
+
+    <TextView
+        android:id="@+id/tv_resend"
+        style="@style/text_dark_blue_16"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:drawableStart="@drawable/ic_refresh_dark_blue"
+        android:gravity="right"
+        android:layoutDirection="rtl"
+        android:text="@string/resend_validation"
+        app:layout_constraintHeight_percent="0.04"
+        app:layout_constraintHorizontal_bias="0.27"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view2"
+        app:layout_constraintWidth_percent="0.6" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_floatingBtn_right"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_floatingBtn_left"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_floatingBtn_top"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.84" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_floatingBtn_bottom"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.89" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btn_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="20dp"
+        android:src="@drawable/ic_tick"
+        android:translationY="10dp"
+        app:backgroundTint="@color/green"
+        app:layout_constraintBottom_toTopOf="@id/guideline_floatingBtn_bottom"
+        app:layout_constraintHorizontal_weight="0.2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline_floatingBtn_top" />
+
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_aboveEnd"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.89" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color08"
+        app:layout_constraintBottom_toTopOf="@id/guideline_end"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline_aboveEnd">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/curve_shape_dark_blue"
+            android:scaleX="-1"
+            android:scaleY="-1">
+
+        </View>
+
+    </LinearLayout>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_end"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.94" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/color06"
+        android:gravity="top"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHeight_percent="0.08"
+        app:layout_constraintTop_toBottomOf="@id/guideline_end"
+        app:layout_constraintVertical_bias="1" />
+
+</android.support.constraint.ConstraintLayout>
